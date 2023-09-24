@@ -6,7 +6,7 @@
 ### Elevator Pitch
 This application is mostly a joke on how social media websites currently all need some kind of gimmick to make them stand out. This application would take it to the next level of stupidness. The idea here is to have the same form of being able to have posts that users can create that would be tied to their profiles, but now every single post must have a YouTube view attached to it. It does not matter if it is a post, comment, or DM, they all need to have a YouTube video attached to it. The client will be more akin to how twitter acts and feels in terms of posts, and will also have a side tab for sending DMs directly to users. If someone forgets to send a YouTube link with their post, a random link from a list of curated videos will be chosen, and this user will then have some kind of badge next to their name for the next day. Overall, this isn't meant to replace anything, it's just meant to be silly and help me practice with the ideas that we will learn in this class.
 ### Design
-[image here]
+![name of image](/Images/a.png)
 ### Key Features
  - Secure login over over HTTPS
  - Able to post to the world
