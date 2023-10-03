@@ -45,3 +45,4 @@ For this deliverable, I took the simon HTML code and reformated it to work for w
 - **Login** - The login page has an input box for a username and a button to log in with. This will eventually have a password button also when that becomes relevant.
 - **Database** - The user statuses on the homepage and the DMs all would need to be stored in a database, along with the profile pictures.
 - **WebSocket** - Technically the YouTube videos are realtime content, more more seriously, the feed would be updating every 5ish minutes (subject to change) to keep the user up to date, and the DMs would be updating whenever either user pushed a new message to it. These are all realtime and would update as needed. So would profile pictures.
+- **3rd Party Service Calls** - This has the gimmick of YouTube videos everywhere. These are 3rd party service calls.
