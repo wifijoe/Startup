@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<header>
-    <h1>Vidshare</h1>
+  <header>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-svg" href="slig.svg">
+    <title>vidshare</title>
+
+    <header>
+      <h1>Vidshare</h1>
+      <hr />
 
     <!-- Navigation elements -->
     <nav>
@@ -10,16 +18,28 @@
         <li><a href="DMs.html">Go to DMs</a></li>
       </menu>
     </nav>
-    <div class="players">
+    <div class="user">
         Logged in as:
-        <span class="player-name">a mystery</span>
+        <span class="user-name">a mystery</span>
       </div>
 
     <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
     <hr />
   </header>
   <body>
-
+    <div>
+      <span class="user_image"><img src="https://myspace.com/common/images/user.png" width=30></span>
+      <span class="other_user">other user's username</span>
+    </div>
+    <div class="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/2DGqVbTHX-k?si=w8ui0gi-cW_PK0kq" 
+      title="YouTube video player" frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
+      web-share" allowfullscreen></iframe>
+    </div>
+    <div class="comment_from_user">
+      this is a cool video!
+    </div>
 
 
 
