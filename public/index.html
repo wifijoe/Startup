@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <header>
+  <head>
     <meta charset="UTF-8" />
     <!-- Tell browsers not to scale the viewport automatically -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-svg" href="slig.svg">
+    <link rel="icon" type="image/x-svg" href="slig.svg" />
     <title>vidshare</title>
 
-    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
 
-    <h1>Vidshare</h1>
-  </header>
+  <body>
+    <header>
+      <h1>Vidshare</h1>
+    </header>
 
-  <div class="login">
-    <body>
+    <main>
       <h2>Login to post statuses!</h2>
       <form method="get" action="Home.html">
         <label for="name">username</label>
         <div class="username_here">
           <input type="text" id="name" placeholder="Username Here..." />
+          <input type="password" id="password" placeholder="Password Here..." />
           <button type="submit">Login</button>
         </div>
       </form>
-    </body>
-  </div>
+    </main>
 
-  <footer>
-    <span class="text-reset">Ash's</span>
-    <a href="https://github.com/wifijoe/Startup">GitHub</a>
-  </footer>
+    <footer>
+      <span class="text-reset">Ash's</span>
+      <a href="https://github.com/wifijoe/Startup">GitHub</a>
+    </footer>
+  </body>
 </html>
