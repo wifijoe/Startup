@@ -21,6 +21,11 @@ aside {
     margin-bottom: 15px;
 }
 
+.video {
+    width: 350px;
+    height: 23vh;
+}
+
 @media (min-width: 800px) {
     main, aside {
         position: fixed;
