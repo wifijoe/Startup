@@ -14,14 +14,10 @@
   <body>
     <header>
       <h1>Vidshare</h1>
-
-      <div class="logout_link">
-        <a href="index.html">Logout</a>
-      </div>
-      <div class="user">
-        Logged in as:
+      <a href="index.html">Logout</a>
+      <p>Logged in as:
         <span class="user-name">a mystery</span>
-      </div>
+      </p>
     </header>
 
     <main>
@@ -33,9 +29,9 @@
           <span class="user_image"
             ><img src="https://myspace.com/common/images/user.png" width="30"
           /></span>
-          <p class="other_user">other user's username</p>
+          <span class="other_user">other user's username</span>
         </div>
-        <div class="video">
+        <div class="container">
           <iframe
             src="https://www.youtube.com/embed/2DGqVbTHX-k?si=w8ui0gi-cW_PK0kq"
             title="YouTube video player"
@@ -43,18 +39,19 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
           web-share"
             allowfullscreen
+            class="video"
           ></iframe>
         </div>
-        <p class="comment_from_user">this is a cool video!</p>
+        <span class="comment_from_user">this is a cool video!</span>
       </div>
       <div class="video_post">
         <div class="user_info">
-          <p class="user_image"
+          <span class="user_image"
             ><img src="https://myspace.com/common/images/user.png" width="30"
-          /></p>
-          <p class="other_user">another user's username</p>
+          /></span>
+          <span class="other_user">another user's username</span>
         </div>
-        <div class="video">
+        <div class="container">
           <iframe
             src="https://www.youtube-nocookie.com/embed/5AU2EudKYI4?si=PkkhNzRoZ-CAVB6W"
             title="YouTube video player"
@@ -62,9 +59,10 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
           web-share"
             allowfullscreen
+            class="video"
           ></iframe>
         </div>
-        <div class="comment_from_user">this is a video!</div>
+        <span class="comment_from_user">This is a special thing</span>
       </div>
     </main>
 
@@ -79,17 +77,18 @@
           /></span>
           <span class="other_user">other user's username</span>
         </div>
-        <div class="other_user_message">
+        <div class="user_message">
           something really snarky would go here, with a video ofc
         </div>
         <div class="video_message">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/1Jwo5qc78QU?si=mUJhZFrFnbgTyecw&amp;controls=0"
+            src="https://www.youtube-nocookie.com/embed/1Jwo5qc78QU?si=mUJhZFrFnbgTyecw"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
           gyroscope; picture-in-picture; web-share"
             allowfullscreen
+            class="video"
           ></iframe>
         </div>
       </div>
@@ -104,12 +103,13 @@
         <div class="user_message">really bad comeback</div>
         <div class="video_message">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/qNYNoC7RM4Q?si=dZzirkWw0O3PX3mJ&amp;controls=0"
+            src="https://www.youtube-nocookie.com/embed/qNYNoC7RM4Q?si=dZzirkWw0O3PX3mJ"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
           gyroscope; picture-in-picture; web-share"
             allowfullscreen
+            class="video"
           ></iframe>
         </div>
       </div>
