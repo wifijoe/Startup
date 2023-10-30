@@ -1,36 +1,52 @@
-header {
-    background-color: rgb(64, 64, 64);
-    color: rgb(221, 221, 221);
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    font-family: sans-serif;
+    color: rgb(209, 209, 209);
+    box-sizing: border-box;
 }
 
 body {
-    flex: 1;
+    background: black;
+    margin: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: 100vh
+}
+
+header {
+    flex: 0 50px;
+    font-size: 20px;
+    background: rgb(102, 0, 0);
+
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #131313;
-    color: rgb(221, 221, 221);
 }
 
 footer {
-    background-color: rgb(64, 64, 64);
+    text-align: center;
+    flex: 0 30px;
+    background: rgb(18, 18, 18);
+    padding: 0 0.5em;
 }
 
-a:visited {
-    color: lime;
+.login {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
 }
 
-h1 {
-    padding-top: 0.1em;
-    padding-right: 0.1em;
-    padding-bottom: 0.1em;
-    padding-left: 0.1em;
+input {
+    color:black;
 }
 
-footer {
-    padding-top: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
+button {
+    color:black;
 }
