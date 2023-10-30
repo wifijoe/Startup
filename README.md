@@ -51,6 +51,6 @@ For this deliverable, I took my basic understanding of CSS and created a basic w
 - **Header, Footer, and Main Content Body** - All are included and all are there, and they all react to the resizing of Windows, though not exactly how I would want it going forward. This will be changed in the next version.
 - **Navigation elements** - Added a password on the landing page, it doesn't actually do anything, and then the button has black text. The Logout hyperlink on the home page now stays white no matter what. The DM page is gone, now being combined with the Home page to make it look closer to the original image.
 - **Response to Window Resizing** - It resizes to work with many different window types! There is also scrolling for each side of the home page, or scrolling overall if the screen is not wide enough.
-- **Application elements** - They all try to use the available space found on both phones and comptuers to the best of its ability.
+- **Application elements** - They all try to use the available space found on both phones and comptuers to the best of its ability. The blank space will be moved to the edges with the next update, and then moved again at a later point as I try to get it closer and closer to the image above.
 - **Application text content** - Same font everywhere!
 - **Application images** - If thumbnails count as an Image, they're here! also user profile pictures are here and have remained untouched. 
