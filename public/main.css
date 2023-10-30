@@ -1,24 +1,15 @@
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
 * {
     font-family: sans-serif;
-    color: rgb(209, 209, 209);
+    color: rgb(240, 240, 240);
     box-sizing: border-box;
 }
 
-body {
-    background: black;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh
-}
-
 header {
-    flex: 0 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 150px;
+    width: 100vw;
     font-size: 20px;
     background: rgb(102, 0, 0);
 
@@ -28,25 +19,20 @@ header {
     align-items: center;
 }
 
+body {
+    margin: 0;
+    padding: 150px 0 30px 0;
+    background: rgb(22, 22, 22);
+}
+
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 100vw;
+
     text-align: center;
-    flex: 0 30px;
     background: rgb(18, 18, 18);
-    padding: 0 0.5em;
-}
-
-.login {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-}
-
-input {
-    color:black;
-}
-
-button {
-    color:black;
+    padding-top: 5px;
 }

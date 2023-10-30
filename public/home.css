@@ -1,0 +1,47 @@
+header, main, aside, footer {
+    padding: 10px;
+}
+
+main, aside {
+    overflow-y: scroll;
+}
+
+main {
+    background: rgb(22, 22, 22);
+}
+
+aside {
+    background: rgb(47, 47, 47);
+}
+
+.video_post, .DM_message {
+    margin-left: auto;
+    margin-right: auto;
+    width: min-content;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 800px) {
+    main, aside {
+        position: fixed;
+        top: 150px;
+        height: calc(100vh - 180px);
+        overflow-y: scroll;
+    }
+
+    main {
+        left: 0;
+        width: calc(100vw - 400px);
+    }
+
+    aside {
+        right: 0;
+        width: 400px;
+    }
+
+    .video_post, .DM_message {
+        margin-left: initial;
+        margin-right: initial;
+        width: min-content;
+    }
+}
