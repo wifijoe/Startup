@@ -46,3 +46,11 @@ For this deliverable, I took the simon HTML code and reformated it to work for w
 - **Database** - The user statuses on the homepage and the DMs all would need to be stored in a database, along with the profile pictures.
 - **WebSocket** - Technically the YouTube videos are realtime content, more more seriously, the feed would be updating every 5ish minutes (subject to change) to keep the user up to date, and the DMs would be updating whenever either user pushed a new message to it. These are all realtime and would update as needed. So would profile pictures.
 - **3rd Party Service Calls** - This has the gimmick of YouTube videos everywhere. These are 3rd party service calls.
+## CSS Deliverable
+For this deliverable, I took my basic understanding of CSS and created a basic webpage with it. Chances are, with the JavaScript deliverable, this will be swapping over to bootstrap to make my life easier and this more actually reactive.
+- **Header, Footer, and Main Content Body** - All are included and all are there, and they all react to the resizing of Windows, though not exactly how I would want it going forward. This will be changed in the next version.
+- **Navigation elements** - Added a password on the landing page, it doesn't actually do anything, and then the button has black text. The Logout hyperlink on the home page now stays white no matter what. The DM page is gone, now being combined with the Home page to make it look closer to the original image.
+- **Response to Window Resizing** - It resizes to work with many different window types! There is also scrolling for each side of the home page, or scrolling overall if the screen is not wide enough.
+- **Application elements** - They all try to use the available space found on both phones and comptuers to the best of its ability.
+- **Application text content** - Same font everywhere!
+- **Application images** - If thumbnails count as an Image, they're here! also user profile pictures are here and have remained untouched. 
