@@ -54,3 +54,9 @@ For this deliverable, I took my basic understanding of CSS and created a basic w
 - **Application elements** - They all try to use the available space found on both phones and comptuers to the best of its ability. The blank space will be moved to the edges with the next update, and then moved again at a later point as I try to get it closer and closer to the image above.
 - **Application text content** - Same font everywhere!
 - **Application images** - If thumbnails count as an Image, they're here! also user profile pictures are here and have remained untouched. 
+## JavaScript Deliverable
+- **Login** - When the Login button is pressed, it stores the username of the person (can be blank right now) and then brings them to the other page, the home page. (will have more than two pages later, proof of concept right now)
+- **database** - The username is being stored locally, everything else is destroyed upon reloading due to currently not seralizing inputs. The representation of what it would be like if posts were stored is there, as the user is able to fill out a comment and paste in a youtube link to "post" a status.
+- **WebSocket** - The setInterval function is being used to periodically add videos to the feed. This will be replaced with a WebSocket message between all clients later.
+- **application logic** - not a lot here yet as this will come with the new DMs page, but the user can post and play videos on the website. Soon to come will be DMs with their own pages, but I ran out of time to impliment that past a very primitive version.
+- **Other** - This is still very much a proof of concept and will be updated to be both a lot smoother and a lot cleaner with the coming updates to the code. That is just not happening tonight, as I've been fighting with bootstrap for 6 hours now and I need a break.
