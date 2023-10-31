@@ -26,9 +26,10 @@
       <div class="home_banner">
         <h3>Home Screen</h3>
       </div>
-			<form>
-				<input type="text" id="home_input" placeholder="post status here"/>
-				<button class="button" onclick="#">submit</button>
+			<form id="status_post">
+				<input type="text" id="home_status" placeholder="post status here"/>
+				<input type="text" id="home_link" placeholder="post youtube link here"/>
+				<button class="button" onclick="generatePost()">submit</button>
 			</form>
       <div id="video_post"></div>
     </main>
@@ -37,9 +38,10 @@
       <div class="DMs_banner">
         <h3>DMs Screen</h3>
       </div>
-			<form>
-				<input type="text" id="home_input" placeholder="add to DM here"/>
-				<button class="button" onclick="#">submit</button>
+			<form id="DMs_post">
+				<input type="text" id="dm_status" placeholder="add to DM here"/>
+				<input type="text" id="dm_link" placeholder="post youtube link here"/>
+				<button class="button" onclick="generateDM()">submit</button>
 			</form>
       <div id="DM_message"></div>
     </aside>
