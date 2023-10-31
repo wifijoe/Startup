@@ -9,14 +9,16 @@
 
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="home.css" />
+
+		<script src="Home.js"></script>
   </head>
 
-  <body>
+  <body onload="runTime()">
     <header>
       <h1>Vidshare</h1>
       <a href="index.html">Logout</a>
       <p>Logged in as:
-        <span class="user-name">a mystery</span>
+        <span id="user-name">a mystery</span>
       </p>
     </header>
 
@@ -24,138 +26,22 @@
       <div class="home_banner">
         <h3>Home Screen</h3>
       </div>
-      <div class="video_post">
-        <div class="user_info">
-          <span class="user_image"
-            ><img src="https://myspace.com/common/images/user.png" width="30"
-          /></span>
-          <span class="other_user">other user's username</span>
-        </div>
-        <div class="container">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/2DGqVbTHX-k?si=w8ui0gi-cW_PK0kq"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
-          web-share"
-            allowfullscreen
-            class="video"
-          ></iframe>
-        </div>
-        <span class="comment_from_user">this is a cool video!</span>
-      </div>
-
-      <div class="video_post">
-        <div class="user_info">
-          <span class="user_image"
-            ><img src="https://myspace.com/common/images/user.png" width="30"
-          /></span>
-          <span class="other_user">another user's username</span>
-        </div>
-        <div class="container">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/5AU2EudKYI4?si=PkkhNzRoZ-CAVB6W"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
-          web-share"
-            allowfullscreen
-            class="video"
-          ></iframe>
-        </div>
-        <span class="comment_from_user">This is a special thing</span>
-      </div>
-
-      <div class="video_post">
-        <div class="user_info">
-          <span class="user_image"
-            ><img src="https://myspace.com/common/images/user.png" width="30"
-          /></span>
-          <span class="other_user">another user's username</span>
-        </div>
-        <div class="container">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/5AU2EudKYI4?si=PkkhNzRoZ-CAVB6W"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
-          web-share"
-            allowfullscreen
-            class="video"
-          ></iframe>
-        </div>
-        <span class="comment_from_user">And this is a repost to show scrolling!</span>
-      </div>
+			<form>
+				<input type="text" id="home_input" placeholder="post status here"/>
+				<button class="button" onclick="#">submit</button>
+			</form>
+      <div id="video_post"></div>
     </main>
 
     <aside>
       <div class="DMs_banner">
         <h3>DMs Screen</h3>
       </div>
-      <div class="DM_message">
-        <div>
-          <span class="user_image"
-            ><img src="https://myspace.com/common/images/user.png" width="30"
-          /></span>
-          <span class="other_user">other user's username</span>
-        </div>
-        <div class="video_message">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/1Jwo5qc78QU?si=mUJhZFrFnbgTyecw"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-          gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            class="video"
-          ></iframe>
-        </div>
-        <div class="user_message">
-          something really snarky would go here, with a video ofc
-        </div>
-      </div>
-
-      <div class="DM_message">
-        <div>
-          <span class="user_image"
-            ><img src="https://myspace.com/common/images/user.png" width="30"
-          /></span>
-          <span class="player-name">a mystery</span>
-        </div>
-        <div class="video_message">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/qNYNoC7RM4Q?si=dZzirkWw0O3PX3mJ"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-          gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            class="video"
-          ></iframe>
-        </div>
-        <div class="user_message">really bad comeback</div>
-      </div>
-
-      <div class="DM_message">
-        <div>
-          <span class="user_image"
-            ><img src="https://myspace.com/common/images/user.png" width="30"
-          /></span>
-          <span class="player-name">a mystery</span>
-        </div>
-        <div class="video_message">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/qNYNoC7RM4Q?si=dZzirkWw0O3PX3mJ"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-          gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            class="video"
-          ></iframe>
-        </div>
-        <div class="user_message">repost scrolling go brrrrr</div>
-      </div>
+			<form>
+				<input type="text" id="home_input" placeholder="add to DM here"/>
+				<button class="button" onclick="#">submit</button>
+			</form>
+      <div id="DM_message"></div>
     </aside>
 
     <footer>
