@@ -44,24 +44,28 @@ function generatePost() {
 	event.preventDefault()
 	const comment = document.querySelector("#home_status").value;
 	let link = document.querySelector("#home_link").value;
-	link = link.replace("youtu.be", "www.youtube-nocookie.com/embed")
-	link = link.replace(/\?si=.*/g, "")
+	if (comment != "" || link != "") {
+		link = link.replace("youtu.be", "www.youtube-nocookie.com/embed")
+		link = link.replace(/\?si=.*/g, "")
 
-	tempHTML = generateHTML(link, comment, localStorage.getItem("username"))
-	const placeToAdd = document.getElementById("video_post");
-	placeToAdd.innerHTML += tempHTML;
+		tempHTML = generateHTML(link, comment, localStorage.getItem("username"))
+		const placeToAdd = document.getElementById("video_post");
+		placeToAdd.innerHTML += tempHTML;
+	}
 }
 
 function generateDM() {
 	event.preventDefault()
 	const comment = document.querySelector("#dm_status").value;
 	let link = document.querySelector("#dm_link").value;
-	link = link.replace("youtu.be", "www.youtube-nocookie.com/embed")
-	link = link.replace(/\?si=.*/g, "")
+	if (comment != "" || link != "") {
+		link = link.replace("youtu.be", "www.youtube-nocookie.com/embed")
+		link = link.replace(/\?si=.*/g, "")
 
-	tempHTML = generateHTML(link, comment, localStorage.getItem("username"))
-	const placeToAdd = document.getElementById("DM_message");
-	placeToAdd.innerHTML += tempHTML;
+		tempHTML = generateHTML(link, comment, localStorage.getItem("username"))
+		const placeToAdd = document.getElementById("DM_message");
+		placeToAdd.innerHTML += tempHTML;
+	}
 }
 
 function runTime() {
