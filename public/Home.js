@@ -9,7 +9,7 @@ function generateRandomMessage(type) {
       .then((response) => response.json())
       .then((data) => {
 	    const placeToAdd = document.getElementById(`${type}`);
-        tempHTML = generateHTML(videoIDs[Math.floor(Math.random() * 3)], data.content, data.author)
+        tempHTML = generateHTML(videoIDs[Math.floor(Math.random() * 3)], data.content, data.author);
 	    placeToAdd.innerHTML += tempHTML;
   });
 }
@@ -39,14 +39,14 @@ function generateHTML(link, comment, username="other user's username") {
 }
 
 async function generatePost() {
-	event.preventDefault()
+	event.preventDefault();
 	const comment = document.querySelector("#home_status").value;
 	let link = document.querySelector("#home_link").value;
 	if (comment != "" || link != "") {
-		link = link.replace("youtu.be", "www.youtube-nocookie.com/embed")
-		link = link.replace(/\?si=.*/g, "")
+		link = link.replace("youtu.be", "www.youtube-nocookie.com/embed");
+		link = link.replace(/\?si=.*/g, "");
 
-		tempHTML = generateHTML(link, comment, localStorage.getItem("username"))
+		tempHTML = generateHTML(link, comment, localStorage.getItem("username"));
 		const placeToAdd = document.getElementById("video_post");
 		placeToAdd.innerHTML += tempHTML;
 
@@ -61,21 +61,21 @@ async function generatePost() {
             localStorage.setItem('posts', JSON.stringify(posts));
 	    } catch {
             //there was an error, print to console that something happened
-            console.log("some error happened with sending data...")
+            console.log("some error happened with sending data...");
         }
 
     }
 }
 
 async function generateDM() {
-	event.preventDefault()
+	event.preventDefault();
 	const comment = document.querySelector("#dm_status").value;
 	let link = document.querySelector("#dm_link").value;
 	if (comment != "" || link != "") {
-		link = link.replace("youtu.be", "www.youtube-nocookie.com/embed")
-		link = link.replace(/\?si=.*/g, "")
+		link = link.replace("youtu.be", "www.youtube-nocookie.com/embed");
+		link = link.replace(/\?si=.*/g, "");
 
-		tempHTML = generateHTML(link, comment, localStorage.getItem("username"))
+		tempHTML = generateHTML(link, comment, localStorage.getItem("username"));
 		const placeToAdd = document.getElementById("DM_message");
 		placeToAdd.innerHTML += tempHTML;
 
@@ -90,31 +90,48 @@ async function generateDM() {
             localStorage.setItem('dmPosts', JSON.stringify(dmPosts));
 	    } catch {
             //there was an error, print to console that something happened
-            console.log("some error happened with sending data...")
+            console.log("some error happened with sending data...");
         }
 	}
 }
 
 function runTime() {
-    update('posts', "video_post")
-    update('dmPosts', "DM_message")
-	const nameToChange = document.getElementById("user-name")
-	nameToChange.innerHTML = localStorage.getItem("username")
-	setInterval(function() {generateRandomMessage("video_post");}, 10000)
-	setInterval(function() {generateRandomMessage("DM_message");}, 15489)
+    refreshPosts();
+    update('posts', "video_post");
+    update('dmPosts', "DM_message");
+	const nameToChange = document.getElementById("user-name");
+	nameToChange.innerHTML = localStorage.getItem("username");
+	setInterval(function() {generateRandomMessage("video_post");}, 10000);
+	setInterval(function() {generateRandomMessage("DM_message");}, 15489);
 }
 
 function update(type, insert_name) {
     const postsText = localStorage.getItem(type);
-    const posts = null
+    let posts = null
     if (postsText) {
-        posts = JSON.parse(postsText)
+        posts = JSON.parse(postsText);
     }
     if (posts.length) {
         for (const post of posts.entries()){
             const placeToAdd = document.getElementById(insert_name);
 		    placeToAdd.innerHTML += post;
         }
+    }
+}
+
+async function refreshPosts() {
+    try {
+        const response = await fetch('/api/dmMessages');
+        dmposts = await response.json();
+
+        response = await fetch('/api/posts');
+        posts = await response.json();
+
+        localStorage.setItem('dmPosts', JSON.stringify(dmPosts));
+        localStorage.setItem('posts', JSON.stringify(posts));
+    } catch {
+        //there was an error, print to console that something happened
+        console.log("some error happened with sending data...");
     }
 }
 
