@@ -38,7 +38,7 @@ function generateHTML(link, comment, username="other user's username") {
     </div>`;
 }
 
-function generatePost() {
+async function generatePost() {
 	event.preventDefault()
 	const comment = document.querySelector("#home_status").value;
 	let link = document.querySelector("#home_link").value;
@@ -49,10 +49,25 @@ function generatePost() {
 		tempHTML = generateHTML(link, comment, localStorage.getItem("username"))
 		const placeToAdd = document.getElementById("video_post");
 		placeToAdd.innerHTML += tempHTML;
-	}
+
+        try {
+            const response = await fetch('/api/post', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify(tempHTML),
+            });
+
+            const posts = await response.json();
+            localStorage.setItem('posts', JSON.stringify(posts));
+	    } catch {
+            //there was an error, print to console that something happened
+            console.log("some error happened with sending data...")
+        }
+
+    }
 }
 
-function generateDM() {
+async function generateDM() {
 	event.preventDefault()
 	const comment = document.querySelector("#dm_status").value;
 	let link = document.querySelector("#dm_link").value;
@@ -63,13 +78,43 @@ function generateDM() {
 		tempHTML = generateHTML(link, comment, localStorage.getItem("username"))
 		const placeToAdd = document.getElementById("DM_message");
 		placeToAdd.innerHTML += tempHTML;
+
+        try {
+            const response = await fetch('/api/dmMessage', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify(tempHTML),
+            });
+
+            const dmPosts = await response.json();
+            localStorage.setItem('dmPosts', JSON.stringify(dmPosts));
+	    } catch {
+            //there was an error, print to console that something happened
+            console.log("some error happened with sending data...")
+        }
 	}
 }
 
 function runTime() {
+    update('posts', "video_post")
+    update('dmPosts', "DM_message")
 	const nameToChange = document.getElementById("user-name")
 	nameToChange.innerHTML = localStorage.getItem("username")
 	setInterval(function() {generateRandomMessage("video_post");}, 10000)
 	setInterval(function() {generateRandomMessage("DM_message");}, 15489)
+}
+
+function update(type, insert_name) {
+    const postsText = localStorage.getItem(type);
+    const posts = null
+    if (postsText) {
+        posts = JSON.parse(postsText)
+    }
+    if (posts.length) {
+        for (const post of posts.entries()){
+            const placeToAdd = document.getElementById(insert_name);
+		    placeToAdd.innerHTML += post;
+        }
+    }
 }
 
