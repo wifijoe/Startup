@@ -27,14 +27,14 @@ apiRouter.post('/post', (req, res) => {
 
 //Get DM messages
 apiRouter.get('/dmMessages', (_req, res) => {
-    res.send(dmPosts);
-  });
+  res.send(dmPosts);
+});
   
-  //submit DM messages
-  apiRouter.post('/dmMessage', (req, res) => {
-    scores = updatePosts(req.body, dmPosts);
-    res.send(dmPosts);
-  });
+//submit DM messages
+apiRouter.post('/dmMessage', (req, res) => {
+  scores = updatePosts(req.body, dmPosts);
+  res.send(dmPosts);
+});
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
@@ -52,5 +52,5 @@ let posts = [];
 let dmPosts = [];
 
 function updatePosts(newPost, posts) {
-    posts.push(newPost)
+  posts.push(newPost)
 }
