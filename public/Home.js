@@ -4,12 +4,6 @@ const videoIDs = [
     "https://www.youtube-nocookie.com/embed/1Jwo5qc78QU"
 ];
 
-const comments = [
-    "I am a comment",
-    "the 2",
-    "I ran out of things to type"
-];
-
 function generateRandomMessage(type) {
     fetch('https://api.quotable.io/random')
       .then((response) => response.json())
