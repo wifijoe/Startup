@@ -11,9 +11,13 @@ const comments = [
 ];
 
 function generateRandomMessage(type) {
-	const placeToAdd = document.getElementById(`${type}`);
-    tempHTML = generateHTML(videoIDs[Math.floor(Math.random() * 3)], comments[Math.floor(Math.random() * 3)])
-	placeToAdd.innerHTML += tempHTML;
+    fetch('https://api.quotable.io/random')
+      .then((response) => response.json())
+      .then((data) => {
+	    const placeToAdd = document.getElementById(`${type}`);
+        tempHTML = generateHTML(videoIDs[Math.floor(Math.random() * 3)], data.content, data.author)
+	    placeToAdd.innerHTML += tempHTML;
+  });
 }
 
 function generateHTML(link, comment, username="other user's username") {
