@@ -11,7 +11,6 @@ async function loginOrCreate(endpoint) {
 	const password = document.querySelector("#pass")?.value;
 
 	if (!username || !password) {
-		console.log("in blank user/pass!");
 		const errorMessage = document.querySelector("#error-message");
 		errorMessage.textContent = `ERROR: No username or password!`;
 		return
