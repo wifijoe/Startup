@@ -34,15 +34,16 @@
 			<form action="Home.html">
 				<div class="mb-3 mt-3">
 					<label for="username">Username:</label>
-					<input type="username" class="form-control" id="user-name" placeholder="Enter username"
-						name="username">
+					<input type="username" class="form-control" id="user-name" placeholder="Enter username" />
 				</div>
 				<div class="mb-3">
 					<label for="pwd">Password:</label>
-					<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+					<input type="password" class="form-control" id="pass" placeholder="Enter password" />
 				</div>
-				<button class="btn btn-outline-light" onclick="login()">Login</button>
+				<button type="button" class="btn btn-outline-light" onclick="login()">Login</button>
+				<button type="button" class="btn btn-outline-light" onclick="register()">Register</button>
 			</form>
+			<h3><div id="error-message"></div></h3>
 		</div>
 	</main>
 
