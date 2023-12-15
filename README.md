@@ -79,3 +79,9 @@ for this deliverable, I got the login and user creation screens to work.
 - **existing user** - allows existing users to log in with their credentials to see all of the posts on the server. DMs do not function properly right now.
 - **Use MongoDB to store credentials** - done!
 - **Restricts functionality** - You cannot see the Home page if you are not logged in. If you log out and navigate back to the Home page, the site will kick you back to the login screen.
+## Websocket derliverable
+for this deliverable, I found a way to use websockets to have the posts update whenever another user posts.
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - done!
+- **WebSocket data displayed** - Posts update as people post them from different browsers.
