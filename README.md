@@ -60,3 +60,9 @@ For this deliverable, I took my basic understanding of CSS and created a basic w
 - **WebSocket** - The setInterval function is being used to periodically add videos to the feed. This will be replaced with a WebSocket message between all clients later.
 - **application logic** - not a lot here yet as this will come with the new DMs page, but the user can post and play videos on the website. Soon to come will be DMs with their own pages, but I ran out of time to impliment that past a very primitive version.
 - **Other** - This is still very much a proof of concept and will be updated to be both a lot smoother and a lot cleaner with the coming updates to the code. That is just not happening tonight, as I've been fighting with bootstrap for 6 hours now and I need a break.
+## Service deliverable
+- **Node.js/Express HTTP service** - done!
+- **Static middleware for frontend** - done!
+- **3rd party calls** - calls are made to Quotes API to generate users and comments under a predefined youtube video as a proof of concept.
+- **Backend service endpoints** - endpoints for posts that the user create for both posts and also DMs.
+- **Frontend service endpoints** - using fetch, the page creates and then updates with user information whenever it is refreshed.
