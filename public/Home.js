@@ -1,3 +1,5 @@
+const db = require('database.js')
+
 const videoIDs = [
     "https://www.youtube-nocookie.com/embed/2DGqVbTHX-k",
     "https://www.youtube-nocookie.com/embed/5AU2EudKYI4",
