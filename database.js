@@ -18,10 +18,13 @@ const dmPostCollection = db.collection('dmPost');
 
 async function addPost(post) {
     const result = await postCollection.insertOne(post);
+    return result
 }
 
 async function addDmPost(post) {
+    console.log("this is the api: ", post)
     const result = await dmPostCollection.insertOne(post);
+    return result
 }
 
 function getposts() {

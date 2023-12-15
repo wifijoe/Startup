@@ -49,7 +49,7 @@ async function generatePost() {
 		tempHTML = generateHTML(link, comment, localStorage.getItem("username"));
 		const placeToAdd = document.getElementById("video_post");
 		placeToAdd.innerHTML += tempHTML;
-        const information = [link, comment, localStorage.getItem("username")]
+        const information = {links: link, comments: comment, username: localStorage.getItem("username")}
 
         try {
             const response = await fetch('/api/post', {
@@ -80,7 +80,7 @@ async function generateDM() {
 		const placeToAdd = document.getElementById("DM_message");
 		placeToAdd.innerHTML += tempHTML;
 
-        const information = [link, comment, localStorage.getItem("username")]
+        const information = {links: link, comments: comment, username: localStorage.getItem("username")}
 
         try {
             const response = await fetch('/api/dmMessage', {
@@ -116,7 +116,7 @@ function update(type, insert_name) {
         if (posts.length) {
             for (const post of posts){
                 const placeToAdd = document.getElementById(insert_name);
-                tempHTML = generateHTML(post[0], post[1], post[2]);
+                tempHTML = generateHTML(post.links, post.comments, post.username);
 	            placeToAdd.innerHTML += tempHTML;
             }
         }
