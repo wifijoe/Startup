@@ -98,14 +98,14 @@ async function generateDM() {
 	}
 }
 
-function runTime() {
-    refreshPosts();
+async function runTime() {
+    await refreshPosts();
     update('posts', "video_post");
     update('dmPosts', "DM_message");
 	const nameToChange = document.getElementById("user-name");
 	nameToChange.innerHTML = localStorage.getItem("username");
-	setInterval(function() {generateRandomMessage("video_post");}, 30000);
-	setInterval(function() {generateRandomMessage("DM_message");}, 35489);
+	setInterval(function() {generateRandomMessage("video_post");}, 50000);
+	setInterval(function() {generateRandomMessage("DM_message");}, 55489);
 }
 
 function update(type, insert_name) {
@@ -126,6 +126,12 @@ function update(type, insert_name) {
 async function refreshPosts() {
     try {
         const response = await fetch('/api/dmMessages');
+
+        if (response.status === 401) {
+            window.location.href = 'index.html'
+            return
+        }
+
         const dmposts = await response.json();
 
         const response2 = await fetch('/api/posts');
@@ -139,3 +145,9 @@ async function refreshPosts() {
     }
 }
 
+function logout() {
+    localStorage.removeItem('username');
+    fetch(`/api/auth/logout`, {
+        method: 'delete',
+    }).then(() => (window.location.href = 'index.html'));
+}
