@@ -55,18 +55,27 @@ For this deliverable, I took my basic understanding of CSS and created a basic w
 - **Application text content** - Same font everywhere!
 - **Application images** - If thumbnails count as an Image, they're here! also user profile pictures are here and have remained untouched. 
 ## JavaScript Deliverable
+for this deliverable, I used Javascript to allow the website to do things when pressing different buttons and links
 - **Login** - When the Login button is pressed, it stores the username of the person (can be blank right now) and then brings them to the other page, the home page. (will have more than two pages later, proof of concept right now)
 - **database** - The username is being stored locally, everything else is destroyed upon reloading due to currently not seralizing inputs. The representation of what it would be like if posts were stored is there, as the user is able to fill out a comment and paste in a youtube link to "post" a status.
 - **WebSocket** - The setInterval function is being used to periodically add videos to the feed. This will be replaced with a WebSocket message between all clients later.
 - **application logic** - not a lot here yet as this will come with the new DMs page, but the user can post and play videos on the website. Soon to come will be DMs with their own pages, but I ran out of time to impliment that past a very primitive version.
 - **Other** - This is still very much a proof of concept and will be updated to be both a lot smoother and a lot cleaner with the coming updates to the code. That is just not happening tonight, as I've been fighting with bootstrap for 6 hours now and I need a break.
 ## Service deliverable
+for this deliverable, I got the API calls all set up, and some limited storage for posts in RAM.
 - **Node.js/Express HTTP service** - done!
 - **Static middleware for frontend** - done!
 - **3rd party calls** - calls are made to Quotes API to generate users and comments under a predefined youtube video as a proof of concept.
 - **Backend service endpoints** - endpoints for posts that the user create for both posts and also DMs.
 - **Frontend service endpoints** - using fetch, the page creates and then updates with user information whenever it is refreshed.
 ## DB Deliverable
+for this deliverable, I got the website connected to and using mongoDB.
 - **MongoDB Atlas database created** - done!
 - **Endpoints for data** - the endpoints now point towards and use MongoDB
 - **Stores data in MongoDB** - done!
+## Login Deliverable
+for this deliverable, I got the login and user creation screens to work.
+- **User registration** - Creates a new account in the database.
+- **existing user** - allows existing users to log in with their credentials to see all of the posts on the server. DMs do not function properly right now.
+- **Use MongoDB to store credentials** - done!
+- **Restricts functionality** - You cannot see the Home page if you are not logged in. If you log out and navigate back to the Home page, the site will kick you back to the login screen.
