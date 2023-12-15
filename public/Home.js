@@ -4,6 +4,10 @@ const videoIDs = [
     "https://www.youtube-nocookie.com/embed/1Jwo5qc78QU"
 ];
 
+let socket;
+
+const MessagePostEvent = 'messagePostEvent';
+
 function generateRandomMessage(type) {
     fetch('https://api.quotable.io/random')
       .then((response) => response.json())
@@ -60,6 +64,8 @@ async function generatePost() {
 
             const posts = await response.json();
             localStorage.setItem('posts', JSON.stringify(posts));
+            console.log("got to broadcast")
+            broadcastEvent(MessagePostEvent, localStorage.getItem("username"))
 	    } catch (e) {
             //there was an error, print to console that something happened
             console.log(e.message);
@@ -99,13 +105,18 @@ async function generateDM() {
 }
 
 async function runTime() {
-    await refreshPosts();
-    update('posts', "video_post");
-    update('dmPosts', "DM_message");
+    pushUpdate();
+    configureWebSocket();
 	const nameToChange = document.getElementById("user-name");
 	nameToChange.innerHTML = localStorage.getItem("username");
 	setInterval(function() {generateRandomMessage("video_post");}, 50000);
 	setInterval(function() {generateRandomMessage("DM_message");}, 55489);
+}
+
+async function pushUpdate() {
+    await refreshPosts();
+    update('posts', "video_post");
+    update('dmPosts', "DM_message");
 }
 
 function update(type, insert_name) {
@@ -151,3 +162,34 @@ function logout() {
         method: 'delete',
     }).then(() => (window.location.href = 'index.html'));
 }
+
+function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
+        displayMsg('client', 'connected');
+    };
+    socket.onclose = (event) => {
+        displayMsg('client', 'disconnected');
+    };
+    socket.onmessage = async (event) => {
+        const msg = JSON.parse(await event.data.text());
+        if (msg.type === MessagePostEvent) {
+          displayMsg(msg.from, `posted`);
+          pushUpdate();
+        }
+      };
+}
+
+function displayMsg(from, msg) {
+    const errorMessage = document.querySelector("#webSocket");
+    errorMessage.textContent = `${from} ${msg}`;
+}
+function broadcastEvent(type, value) {
+    console.log("in broadcast")
+    const event = {
+      type: type,
+      from: value,
+    };
+    socket.send(JSON.stringify(event));
+  }
