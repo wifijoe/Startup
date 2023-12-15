@@ -49,12 +49,13 @@ async function generatePost() {
 		tempHTML = generateHTML(link, comment, localStorage.getItem("username"));
 		const placeToAdd = document.getElementById("video_post");
 		placeToAdd.innerHTML += tempHTML;
+        const information = [link, comment, localStorage.getItem("username")]
 
         try {
             const response = await fetch('/api/post', {
                 method: 'POST',
                 headers: {'content-type': 'application/json'},
-                body: JSON.stringify(tempHTML),
+                body: JSON.stringify(information),
             });
 
             const posts = await response.json();
@@ -79,11 +80,13 @@ async function generateDM() {
 		const placeToAdd = document.getElementById("DM_message");
 		placeToAdd.innerHTML += tempHTML;
 
+        const information = [link, comment, localStorage.getItem("username")]
+
         try {
             const response = await fetch('/api/dmMessage', {
                 method: 'POST',
                 headers: {'content-type': 'application/json'},
-                body: JSON.stringify(tempHTML),
+                body: JSON.stringify(information),
             });
 
             const dmPosts = await response.json();
@@ -101,8 +104,8 @@ function runTime() {
     update('dmPosts', "DM_message");
 	const nameToChange = document.getElementById("user-name");
 	nameToChange.innerHTML = localStorage.getItem("username");
-	setInterval(function() {generateRandomMessage("video_post");}, 10000);
-	setInterval(function() {generateRandomMessage("DM_message");}, 15489);
+	setInterval(function() {generateRandomMessage("video_post");}, 30000);
+	setInterval(function() {generateRandomMessage("DM_message");}, 35489);
 }
 
 function update(type, insert_name) {
@@ -110,11 +113,12 @@ function update(type, insert_name) {
     let posts = null
     if (postsText) {
         posts = JSON.parse(postsText);
-    }
-    if (posts.length) {
-        for (const post of posts.entries()){
-            const placeToAdd = document.getElementById(insert_name);
-		    placeToAdd.innerHTML += post;
+        if (posts.length) {
+            for (const post of posts){
+                const placeToAdd = document.getElementById(insert_name);
+                tempHTML = generateHTML(post[0], post[1], post[2]);
+	            placeToAdd.innerHTML += tempHTML;
+            }
         }
     }
 }
@@ -122,16 +126,16 @@ function update(type, insert_name) {
 async function refreshPosts() {
     try {
         const response = await fetch('/api/dmMessages');
-        dmposts = await response.json();
+        const dmposts = await response.json();
 
-        response = await fetch('/api/posts');
-        posts = await response.json();
+        const response2 = await fetch('/api/posts');
+        const posts = await response2.json();
 
-        localStorage.setItem('dmPosts', JSON.stringify(dmPosts));
+        localStorage.setItem('dmPosts', JSON.stringify(dmposts));
         localStorage.setItem('posts', JSON.stringify(posts));
-    } catch {
+    } catch (e) {
         //there was an error, print to console that something happened
-        console.log("some error happened with sending data...");
+        console.log(e.message);
     }
 }
 
