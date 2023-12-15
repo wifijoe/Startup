@@ -66,3 +66,7 @@ For this deliverable, I took my basic understanding of CSS and created a basic w
 - **3rd party calls** - calls are made to Quotes API to generate users and comments under a predefined youtube video as a proof of concept.
 - **Backend service endpoints** - endpoints for posts that the user create for both posts and also DMs.
 - **Frontend service endpoints** - using fetch, the page creates and then updates with user information whenever it is refreshed.
+## DB Deliverable
+- **MongoDB Atlas database created** - done!
+- **Endpoints for data** - the endpoints now point towards and use MongoDB
+- **Stores data in MongoDB** - done!
