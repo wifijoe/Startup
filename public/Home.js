@@ -60,9 +60,9 @@ async function generatePost() {
 
             const posts = await response.json();
             localStorage.setItem('posts', JSON.stringify(posts));
-	    } catch {
+	    } catch (e) {
             //there was an error, print to console that something happened
-            console.log("some error happened with sending data...");
+            console.log(e.message);
         }
 
     }
@@ -91,9 +91,9 @@ async function generateDM() {
 
             const dmPosts = await response.json();
             localStorage.setItem('dmPosts', JSON.stringify(dmPosts));
-	    } catch {
+	    } catch (e) {
             //there was an error, print to console that something happened
-            console.log("some error happened with sending data...");
+            console.log(e.message);
         }
 	}
 }

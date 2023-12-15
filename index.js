@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const DB = require('./database.js')
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -15,24 +16,28 @@ const apiRouter = express.Router();
 app.use('/api', apiRouter);
 
 // Get posts
-apiRouter.get('/posts', (_req, res) => {
+apiRouter.get('/posts', async (_req, res) => {
+  const posts = await DB.getposts();
   res.send(posts);
 });
 
 //Submit post
-apiRouter.post('/post', (req, res) => {
-  scores = updatePosts(req.body, posts);
+apiRouter.post('/post', async (req, res) => {
+  DB.addPost(req.body)
+  const posts = await DB.getposts();
   res.send(posts);
 });
 
 //Get DM messages
-apiRouter.get('/dmMessages', (_req, res) => {
+apiRouter.get('/dmMessages', async (_req, res) => {
+  const dmPosts = await DB.getdmPosts();
   res.send(dmPosts);
 });
   
 //submit DM messages
-apiRouter.post('/dmMessage', (req, res) => {
-  scores = updatePosts(req.body, dmPosts);
+apiRouter.post('/dmMessage', async (req, res) => {
+  DB.addDmPost(req.body);
+  const dmPosts = await DB.getdmPosts();
   res.send(dmPosts);
 });
 
@@ -44,13 +49,3 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-//current posts and allows for the user to submit a new video
-//These are put into memory and will be erased if the service is shut down
-let posts = [];
-
-let dmPosts = [];
-
-function updatePosts(newPost, posts) {
-  posts.push(newPost)
-}
