@@ -24,13 +24,10 @@ async function loginOrCreate(endpoint) {
 			'Content-type': 'application/json; charset=UTF-8',
 		},
 	});
-	console.log("got here!");
 	if (response.ok) {
-		console.log("in ok");
 		localStorage.setItem('username', username);
 		window.location.href = "Home.html";
 	} else {
-		console.log("in not ok");
 		const body = await response.json();
 		const errorMessage = document.querySelector("#error-message");
 		errorMessage.textContent = `ERROR: ${body.msg}`;

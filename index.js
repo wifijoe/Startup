@@ -44,6 +44,7 @@ apiRouter.post('/auth/login', async (req, res) => {
       res.send({
         id: user._id
       });
+      return;
     }
   }
   res.status(401).send({msg: 'username/password is incorrect!'})
